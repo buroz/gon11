@@ -6,19 +6,18 @@ go get github.com/buroz/gon11
 package main
 
 import (
-		"fmt"
+	"fmt"
 
-		"github.com/buroz/gon11/src/n11"
+	"github.com/buroz/gon11/src/n11"
 )
 
 func main() {
-		var client = &n11.Client{}
+	var client = &n11.Client{}
 
-		user := client.Create("asd", "asd")
-		fmt.Println(user)
+	user := client.Create("asd", "asd")
+	fmt.Println(user)
 
-		cities := client.Services.CityService.GetCity("07")
-		fmt.Println(cities.Body.GetCityResponse.Result.Status)
+	cities := client.Services.CityService.GetCity("07")
+	fmt.Println(cities.Body.GetCityResponse.Result.Status)
 }
-
 ```
