@@ -1,4 +1,4 @@
-### N11.com API Parser
+### Hardly typed n11.com API Parser
 
 #### (In Progress)
 
@@ -41,8 +41,8 @@ func main() {
 ### Service List
 
 - [x] City Service
-- [ ] Category Service (Current)
-- [ ] Product Service
+- [x] Category Service
+- [ ] Product Service (Current)
 - [ ] Product Selling Service
 - [ ] Product Stock Service
 - [ ] Order Service

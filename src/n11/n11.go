@@ -1,7 +1,7 @@
 package n11
 
 import (
-	"github.com/buroz/gon11/src/client"
+	"github.com/buroz/gon11/src/protos"
 	"github.com/buroz/gon11/src/services"
 )
 
@@ -11,11 +11,11 @@ type Services struct {
 }
 
 type Client struct {
-	user     client.Auth
+	user     protos.Auth
 	Services Services
 }
 
-func (c *Client) Create(appKey string, appSecret string) client.Auth {
+func (c *Client) Create(appKey string, appSecret string) protos.Auth {
 	c.user.AppKey = appKey
 	c.user.AppSecret = appSecret
 	c.Services = Services{

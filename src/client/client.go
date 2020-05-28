@@ -20,12 +20,6 @@ type Request struct {
 	} `xml:"x:Body"`
 }
 
-type Auth struct {
-	XMLName   xml.Name `xml:"auth"`
-	AppKey    string   `xml:"appKey"`
-	AppSecret string   `xml:"appSecret"`
-}
-
 func (this *Request) Call(service string, request interface{}) []byte {
 	this.X = "http://schemas.xmlsoap.org/soap/envelope/"
 	this.Sch = "http://www.n11.com/ws/schemas"

@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/buroz/gon11/src/n11"
+	"github.com/buroz/gon11/src/protos"
 	"github.com/joho/godotenv"
 )
 
@@ -25,12 +26,20 @@ func main() {
 
 	user := client.Create(appKey, appSecret)
 
-	categories := client.Services.CategoryService.GetTopLevelCategories(user)
+	pagination := protos.PagingDataRequest{}
 
-	fmt.Println(categories.Body.GetTopLevelCategoriesResponse.Result.Status)
-	fmt.Println(categories.Body.GetTopLevelCategoriesResponse.Result.ErrorMessage)
+	attr := client.Services.CategoryService.GetCategoryAttributeValue(user, "354079908", pagination)
 
-	for _, d := range categories.Body.GetTopLevelCategoriesResponse.CategoryList.Category {
-		fmt.Println(d.CategoryId, d.CategoryName)
+	fmt.Println(attr.Body.GetCategoryAttributeValueResponse.PagingData.CurrentPage)
+	fmt.Println(attr.Body.GetCategoryAttributeValueResponse.PagingData.PageCount)
+	fmt.Println(attr.Body.GetCategoryAttributeValueResponse.PagingData.PageSize)
+	fmt.Println(attr.Body.GetCategoryAttributeValueResponse.PagingData.TotalCount)
+
+	for _, d := range attr.Body.GetCategoryAttributeValueResponse.CategoryProductAttributeValueList.CategoryProductAttributeValue {
+		fmt.Println(d.Id)
+		fmt.Println(d.Mandatory)
+		fmt.Println(d.MultipleSelect)
+		fmt.Println(d.Name)
 	}
+
 }
