@@ -1,27 +1,26 @@
 package n11
 
 import (
+	"github.com/buroz/gon11/src/client"
 	"github.com/buroz/gon11/src/services"
 )
 
 type Services struct {
-	CityService services.CityService
+	CityService     services.CityService
+	CategoryService services.CategoryService
 }
 
 type Client struct {
-	user struct {
-		AppKey    string
-		AppSecret string
-	}
+	user     client.Auth
 	Services Services
 }
 
-func (c *Client) Create(appKey string, appSecret string) struct {
-	AppKey    string
-	AppSecret string
-} {
+func (c *Client) Create(appKey string, appSecret string) client.Auth {
 	c.user.AppKey = appKey
 	c.user.AppSecret = appSecret
-	c.Services = Services{}
+	c.Services = Services{
+		CityService:     services.CityService{},
+		CategoryService: services.CategoryService{},
+	}
 	return c.user
 }

@@ -27,3 +27,23 @@ func (s *CityService) GetCity(cityCode string) *protos.GetCityResponse {
 	xml.Unmarshal(response, &data)
 	return data
 }
+
+func (s *CityService) GetDistrict(cityCode string) *protos.GetDistrictResponse {
+	soapClient := &client.Request{}
+	req := &protos.GetDistrictRequest{}
+	req.CityCode = cityCode
+	response := soapClient.Call(constants.CityService, req)
+	data := &protos.GetDistrictResponse{}
+	xml.Unmarshal(response, &data)
+	return data
+}
+
+func (s *CityService) GetNeighborhoods(districtId string) *protos.GetNeighborhoodsResponse {
+	soapClient := &client.Request{}
+	req := &protos.GetNeighborhoodsRequest{}
+	req.DistrictId = districtId
+	response := soapClient.Call(constants.CityService, req)
+	data := &protos.GetNeighborhoodsResponse{}
+	xml.Unmarshal(response, &data)
+	return data
+}

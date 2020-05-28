@@ -2,16 +2,35 @@ package main
 
 import (
 	"fmt"
+	"log"
+	"os"
 
 	"github.com/buroz/gon11/src/n11"
+	"github.com/joho/godotenv"
 )
 
 func main() {
-	var client = &n11.Client{}
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+		os.Exit(1)
+	}
 
-	user := client.Create("asd", "asd")
-	fmt.Println(user)
+	var (
+		appKey    = os.Getenv("APP_KEY")
+		appSecret = os.Getenv("APP_SECRET")
+	)
 
-	cities := client.Services.CityService.GetCity("07")
-	fmt.Println(cities.Body.GetCityResponse.Result.Status)
+	var client = n11.Client{}
+
+	user := client.Create(appKey, appSecret)
+
+	categories := client.Services.CategoryService.GetTopLevelCategories(user)
+
+	fmt.Println(categories.Body.GetTopLevelCategoriesResponse.Result.Status)
+	fmt.Println(categories.Body.GetTopLevelCategoriesResponse.Result.ErrorMessage)
+
+	for _, d := range categories.Body.GetTopLevelCategoriesResponse.CategoryList.Category {
+		fmt.Println(d.CategoryId, d.CategoryName)
+	}
 }

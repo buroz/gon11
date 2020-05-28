@@ -7,18 +7,23 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 )
 
 type Request struct {
 	XMLName xml.Name `xml:"x:Envelope"`
 	X       string   `xml:"xmlns:x,attr"`
 	Sch     string   `xml:"xmlns:sch,attr"`
-	Header  struct {
-		Xmlname xml.Name `xml:"x:Header"`
-	}
-	Body struct {
+	Header  struct{} `xml:"x:Header"`
+	Body    struct {
 		Request interface{}
 	} `xml:"x:Body"`
+}
+
+type Auth struct {
+	XMLName   xml.Name `xml:"auth"`
+	AppKey    string   `xml:"appKey"`
+	AppSecret string   `xml:"appSecret"`
 }
 
 func (this *Request) Call(service string, request interface{}) []byte {
@@ -46,9 +51,9 @@ func (this *Request) Call(service string, request interface{}) []byte {
 	defer response.Body.Close()
 
 	content, _ := ioutil.ReadAll(response.Body)
-	/*
-		s := strings.TrimSpace(string(content))
-		fmt.Println(s)
-	*/
+
+	s := strings.TrimSpace(string(content))
+	fmt.Println(s)
+
 	return content
 }
