@@ -6,7 +6,6 @@ import (
 	"os"
 
 	"github.com/buroz/gon11/src/n11"
-	"github.com/buroz/gon11/src/protos"
 	"github.com/joho/godotenv"
 )
 
@@ -26,20 +25,14 @@ func main() {
 
 	user := client.Create(appKey, appSecret)
 
-	pagination := protos.PagingDataRequest{}
+	// pagination := protos.PagingDataRequest{}
 
-	attr := client.Services.CategoryService.GetCategoryAttributeValue(user, "354079908", pagination)
+	attr := client.Services.ProductService.GetProductByProductId(user, 369857815)
 
-	fmt.Println(attr.Body.GetCategoryAttributeValueResponse.PagingData.CurrentPage)
-	fmt.Println(attr.Body.GetCategoryAttributeValueResponse.PagingData.PageCount)
-	fmt.Println(attr.Body.GetCategoryAttributeValueResponse.PagingData.PageSize)
-	fmt.Println(attr.Body.GetCategoryAttributeValueResponse.PagingData.TotalCount)
-
-	for _, d := range attr.Body.GetCategoryAttributeValueResponse.CategoryProductAttributeValueList.CategoryProductAttributeValue {
-		fmt.Println(d.Id)
-		fmt.Println(d.Mandatory)
-		fmt.Println(d.MultipleSelect)
-		fmt.Println(d.Name)
-	}
+	fmt.Println(attr.Body.GetProductByProductIdResponse.Product.Title)
+	fmt.Println(attr.Body.GetProductByProductIdResponse.Product.SubTitle)
+	fmt.Println(attr.Body.GetProductByProductIdResponse.Product.ProductSellerCode)
+	fmt.Println(attr.Body.GetProductByProductIdResponse.Product.Price)
+	fmt.Println(attr.Body.GetProductByProductIdResponse.Product.CurrentAmount)
 
 }

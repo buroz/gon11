@@ -8,6 +8,7 @@ import (
 type Services struct {
 	CityService     services.CityService
 	CategoryService services.CategoryService
+	ProductService  services.ProductService
 }
 
 type Client struct {
@@ -21,6 +22,7 @@ func (c *Client) Create(appKey string, appSecret string) protos.Auth {
 	c.Services = Services{
 		CityService:     services.CityService{},
 		CategoryService: services.CategoryService{},
+		ProductService:  services.ProductService{},
 	}
 	return c.user
 }

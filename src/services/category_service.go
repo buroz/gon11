@@ -45,7 +45,7 @@ func (s *CategoryService) GetParentCategory(user protos.Auth, categoryId string)
 	return data
 }
 
-func (s *CategoryService) GetCategoryAttributes(user protos.Auth, categoryId string, pagingData protos.PagingDataRequest) *protos.GetCategoryAttributesResponse {
+func (s *CategoryService) GetCategoryAttributes(user protos.Auth, pagingData protos.PagingDataRequest, categoryId string) *protos.GetCategoryAttributesResponse {
 	soapClient := &client.Request{}
 	request := protos.GetCategoryAttributesRequest{}
 	request.Auth.AppKey = user.AppKey
@@ -73,7 +73,7 @@ func (s *CategoryService) GetCategoryAttributesId(user protos.Auth, categoryId s
 	return data
 }
 
-func (s *CategoryService) GetCategoryAttributeValue(user protos.Auth, categoryProductAttributeId string, pagingData protos.PagingDataRequest) *protos.GetCategoryAttributeValueResponse {
+func (s *CategoryService) GetCategoryAttributeValue(user protos.Auth, pagingData protos.PagingDataRequest, categoryProductAttributeId string) *protos.GetCategoryAttributeValueResponse {
 	soapClient := &client.Request{}
 	request := protos.GetCategoryAttributeValueRequest{}
 	request.Auth.AppKey = user.AppKey

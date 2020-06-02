@@ -7,7 +7,7 @@ import (
 // GetTopLevelCategories
 type GetTopLevelCategoriesRequest struct {
 	XMLName xml.Name `xml:"sch:GetTopLevelCategoriesRequest"`
-	Auth    Auth
+	Auth    Auth     `xml:"auth"`
 }
 
 type GetTopLevelCategoriesResponse struct {
@@ -34,8 +34,8 @@ type GetTopLevelCategoriesResponse struct {
 // GetSubCategories
 type GetSubCategoriesRequest struct {
 	XMLName    xml.Name `xml:"sch:GetSubCategoriesRequest"`
-	Auth       Auth
-	CategoryId string `xml:"categoryId"`
+	Auth       Auth     `xml:"auth"`
+	CategoryId string   `xml:"categoryId"`
 }
 
 type GetSubCategoriesResponse struct {
@@ -67,8 +67,8 @@ type GetSubCategoriesResponse struct {
 // GetParentCategory
 type GetParentCategoryRequest struct {
 	XMLName    xml.Name `xml:"sch:GetParentCategoryRequest"`
-	Auth       Auth
-	CategoryId string `xml:"categoryId"`
+	Auth       Auth     `xml:"auth"`
+	CategoryId string   `xml:"categoryId"`
 }
 
 type GetParentCategoryResponse struct {
@@ -97,10 +97,10 @@ type GetParentCategoryResponse struct {
 
 // GetCategoryAttributes
 type GetCategoryAttributesRequest struct {
-	XMLName    xml.Name `xml:"sch:GetCategoryAttributesRequest"`
-	Auth       Auth
-	PagingData PagingDataRequest
-	CategoryId string `xml:"categoryId"`
+	XMLName    xml.Name          `xml:"sch:GetCategoryAttributesRequest"`
+	Auth       Auth              `xml:"auth"`
+	PagingData PagingDataRequest `xml:"pagingData"`
+	CategoryId string            `xml:"categoryId"`
 }
 
 type GetCategoryAttributesResponse struct {
@@ -114,7 +114,7 @@ type GetCategoryAttributesResponse struct {
 				ErrorMessage  string `xml:"errorMessage"`
 				ErrorCategory string `xml:"errorCategory"`
 			} `xml:"result"`
-			PagingData PagingDataResponse
+			PagingData PagingDataResponse `xml:"pagingData"`
 			Category   struct {
 				CategoryName string `xml:"name"`
 				CategoryId   string `xml:"id"`
@@ -147,8 +147,8 @@ type GetCategoryAttributesResponse struct {
 // GetCategoryAttributesId
 type GetCategoryAttributesIdRequest struct {
 	XMLName    xml.Name `xml:"sch:GetCategoryAttributesIdRequest"`
-	Auth       Auth
-	CategoryId string `xml:"categoryId"`
+	Auth       Auth     `xml:"auth"`
+	CategoryId string   `xml:"categoryId"`
 }
 
 type GetCategoryAttributesIdResponse struct {
@@ -176,10 +176,10 @@ type GetCategoryAttributesIdResponse struct {
 
 // GetCategoryAttributeValue
 type GetCategoryAttributeValueRequest struct {
-	XMLName                    xml.Name `xml:"sch:GetCategoryAttributeValueRequest"`
-	Auth                       Auth
-	PagingData                 PagingDataRequest
-	CategoryProductAttributeId string `xml:"categoryProductAttributeId"`
+	XMLName                    xml.Name          `xml:"sch:GetCategoryAttributeValueRequest"`
+	Auth                       Auth              `xml:"auth"`
+	PagingData                 PagingDataRequest `xml:"pagingData"`
+	CategoryProductAttributeId string            `xml:"categoryProductAttributeId"`
 }
 
 type GetCategoryAttributeValueResponse struct {

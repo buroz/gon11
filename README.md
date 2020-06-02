@@ -38,15 +38,87 @@ func main() {
 
 ---
 
-### Service List
+##### City Service
 
-- [x] City Service
-- [x] Category Service
-- [ ] Product Service (Current)
-- [ ] Product Selling Service
-- [ ] Product Stock Service
-- [ ] Order Service
-- [ ] Shipment Company Service
-- [ ] Shipment Service
-- [ ] Settlement Service
-- [ ] Ticket Service
+- [x] GetCities
+- [x] GetCity
+- [x] GetDistrict
+- [x] GetNeighborhoods
+
+##### Category Service
+
+- [x] GetCategoryAttributes
+- [x] GetCategoryAttributesId
+- [x] GetCategoryAttributeValue
+- [x] GetParentCategory
+- [x] GetSubCategories
+- [x] GetTopLevelCategories
+
+##### Product Service
+
+- [x] GetProductByProductId
+- [x] GetProductBySellerCode
+- [x] GetProductList
+- [x] Save Product
+- [ ] SearchProducts
+- [ ] DeleteProductById
+- [ ] DeleteProductBySellerCode
+- [ ] UpdateDiscountValueByProductId
+- [ ] UpdateDiscountValueBySellerCode
+- [ ] UpdateProductPriceById
+- [ ] UpdateProductPriceBySellerCode
+- [ ] UpdateProductBasic
+- [ ] GetProductQuestionList
+- [ ] GetProductQuestionDetail
+- [ ] SaveProductAnswer
+- [ ] ProductAllStatusCountsRequest
+
+##### Product Selling Service
+
+- [ ] ProductSellingService
+- [ ] StartSellingProductByProductId
+- [ ] StartSellingProductBySellerCode
+- [ ] StopSellingProductByProductId
+- [ ] StopSellingProductBySellerCode
+
+##### Product Stock Service
+
+- [ ] GetProductStockByProductId
+- [ ] GetProductStockBySellerCode
+- [ ] DeleteAndUpdateStockByStockAttributes
+- [ ] UpdateStockByStockId
+- [ ] UpdateStockByStockSellerCode
+- [ ] IncreaseStockByStockAttributes
+- [ ] IncreaseStockByStockId
+- [ ] IncreaseStockByStockSellerCode
+
+##### Order Service
+
+- [ ] DetailedOrderList
+- [ ] OrderList
+- [ ] OrderDetail
+- [ ] OrderItemAccept
+- [ ] OrderItemReject
+- [ ] MakeOrderItemShipment
+
+##### Shipment Company Service
+
+- [ ] GetShipmentCompanies
+
+##### Shipment Service
+
+- [ ] GetShipmentTemplate
+- [ ] CreateOrUpdateShipmentTemplate
+- [ ] GetShipmentTemplateList
+
+##### Settlement Service
+
+- [ ] GetSettlementList
+- [ ] GetSettlementDetail
+
+##### Ticket Service
+
+- [ ] TicketListingAssignedToSeller
+- [ ] TicketListingBelongsToSeller
+- [ ] TicketAnswer
+- [ ] TicketCreate
